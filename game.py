@@ -92,12 +92,21 @@ while not end_game:
           POS_Y] == coordinate_y:
         char_to_draw = " @"
 
+        # Check if the main trainter is in a another trainer    
         if object_in_cell:
-          # Check if the Snake is in a trainer
+          #Select a random pokemon to struggle
           pokemon_list = ["Squirtle", "Charizard", "Butterfree"]
           rival_pokemon = random.choice(pokemon_list)
-          trainers -= 1
-          map_objects.remove(object_in_cell)
+          win_combat = False
+          os.system ("clear")
+          
+          
+          if win_combat:
+            pokemon_list.remove(rival_pokemon)
+            win_combat = False
+            trainers -= 1
+            map_objects.remove(object_in_cell)
+            break
           
 
       if obstacle_definition[coordinate_y][coordinate_x] == "#":
